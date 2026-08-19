@@ -16,14 +16,11 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CoursesRouteImport } from './routes/courses'
-import { Route as McpRouteImport } from './routes/mcp'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ShopRouteImport } from './routes/shop'
-import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
-import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as AdminBlogRouteImport } from './routes/admin/blog'
 import { Route as AdminCoursesRouteImport } from './routes/admin/courses'
@@ -38,8 +35,6 @@ import { Route as AdminSettingsRouteImport } from './routes/admin/settings'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin/testimonials'
 import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as CoursesAbatRouteImport } from './routes/courses.abat'
-import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
-import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as AdminCoursesCourseIdRouteImport } from './routes/admin/courses.$courseId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -77,11 +72,6 @@ const CoursesRoute = CoursesRouteImport.update({
   path: '/courses',
   getParentRoute: () => rootRouteImport,
 } as any)
-const McpRoute = McpRouteImport.update({
-  id: '/mcp',
-  path: '/mcp',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
@@ -107,18 +97,6 @@ const ShopRoute = ShopRouteImport.update({
   path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Char91DotmcpChar93ListToolsRoute =
-  Char91DotmcpChar93ListToolsRouteImport.update({
-    id: '/.mcp/list-tools',
-    path: '/.mcp/list-tools',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const Char91DotwellKnownChar93OauthProtectedResourceRoute =
-  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
-    id: '/.well-known/oauth-protected-resource',
-    path: '/.well-known/oauth-protected-resource',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -189,17 +167,6 @@ const CoursesAbatRoute = CoursesAbatRouteImport.update({
   path: '/abat',
   getParentRoute: () => CoursesRoute,
 } as any)
-const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
-  id: '/.lovable/oauth/consent',
-  path: '/.lovable/oauth/consent',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Char91DotmcpChar93InvokeToolToolRoute =
-  Char91DotmcpChar93InvokeToolToolRouteImport.update({
-    id: '/.mcp/invoke-tool/$tool',
-    path: '/.mcp/invoke-tool/$tool',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 const AdminCoursesCourseIdRoute = AdminCoursesCourseIdRouteImport.update({
   id: '/$courseId',
   path: '/$courseId',
@@ -214,14 +181,11 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
-  '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
   '/services': typeof ServicesRoute
   '/shop': typeof ShopRoute
-  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
-  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/admin/blog': typeof AdminBlogRoute
   '/admin/courses': typeof AdminCoursesRouteWithChildren
   '/admin/faq': typeof AdminFaqRoute
@@ -236,8 +200,6 @@ export interface FileRoutesByFullPath {
   '/courses/abat': typeof CoursesAbatRoute
   '/admin/': typeof AdminIndexRoute
   '/courses/': typeof CoursesIndexRoute
-  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
-  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/admin/courses/$courseId': typeof AdminCoursesCourseIdRoute
 }
 export interface FileRoutesByTo {
@@ -246,14 +208,11 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
-  '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
   '/services': typeof ServicesRoute
   '/shop': typeof ShopRoute
-  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
-  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/admin/blog': typeof AdminBlogRoute
   '/admin/courses': typeof AdminCoursesRouteWithChildren
   '/admin/faq': typeof AdminFaqRoute
@@ -268,8 +227,6 @@ export interface FileRoutesByTo {
   '/courses/abat': typeof CoursesAbatRoute
   '/admin': typeof AdminIndexRoute
   '/courses': typeof CoursesIndexRoute
-  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
-  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/admin/courses/$courseId': typeof AdminCoursesCourseIdRoute
 }
 export interface FileRoutesById {
@@ -281,14 +238,11 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
-  '/mcp': typeof McpRoute
   '/pricing': typeof PricingRoute
   '/refund-policy': typeof RefundPolicyRoute
   '/resources': typeof ResourcesRoute
   '/services': typeof ServicesRoute
   '/shop': typeof ShopRoute
-  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
-  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/admin/blog': typeof AdminBlogRoute
   '/admin/courses': typeof AdminCoursesRouteWithChildren
   '/admin/faq': typeof AdminFaqRoute
@@ -303,8 +257,6 @@ export interface FileRoutesById {
   '/courses/abat': typeof CoursesAbatRoute
   '/admin/': typeof AdminIndexRoute
   '/courses/': typeof CoursesIndexRoute
-  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
-  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/admin/courses/$courseId': typeof AdminCoursesCourseIdRoute
 }
 export interface FileRouteTypes {
@@ -317,14 +269,11 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/courses'
-    | '/mcp'
     | '/pricing'
     | '/refund-policy'
     | '/resources'
     | '/services'
     | '/shop'
-    | '/.mcp/list-tools'
-    | '/.well-known/oauth-protected-resource'
     | '/admin/blog'
     | '/admin/courses'
     | '/admin/faq'
@@ -339,8 +288,6 @@ export interface FileRouteTypes {
     | '/courses/abat'
     | '/admin/'
     | '/courses/'
-    | '/.lovable/oauth/consent'
-    | '/.mcp/invoke-tool/$tool'
     | '/admin/courses/$courseId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -349,14 +296,11 @@ export interface FileRouteTypes {
     | '/auth'
     | '/blog'
     | '/contact'
-    | '/mcp'
     | '/pricing'
     | '/refund-policy'
     | '/resources'
     | '/services'
     | '/shop'
-    | '/.mcp/list-tools'
-    | '/.well-known/oauth-protected-resource'
     | '/admin/blog'
     | '/admin/courses'
     | '/admin/faq'
@@ -371,8 +315,6 @@ export interface FileRouteTypes {
     | '/courses/abat'
     | '/admin'
     | '/courses'
-    | '/.lovable/oauth/consent'
-    | '/.mcp/invoke-tool/$tool'
     | '/admin/courses/$courseId'
   id:
     | '__root__'
@@ -383,14 +325,11 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/courses'
-    | '/mcp'
     | '/pricing'
     | '/refund-policy'
     | '/resources'
     | '/services'
     | '/shop'
-    | '/.mcp/list-tools'
-    | '/.well-known/oauth-protected-resource'
     | '/admin/blog'
     | '/admin/courses'
     | '/admin/faq'
@@ -405,8 +344,6 @@ export interface FileRouteTypes {
     | '/courses/abat'
     | '/admin/'
     | '/courses/'
-    | '/.lovable/oauth/consent'
-    | '/.mcp/invoke-tool/$tool'
     | '/admin/courses/$courseId'
   fileRoutesById: FileRoutesById
 }
@@ -418,16 +355,11 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRouteWithChildren
-  McpRoute: typeof McpRoute
   PricingRoute: typeof PricingRoute
   RefundPolicyRoute: typeof RefundPolicyRoute
   ResourcesRoute: typeof ResourcesRoute
   ServicesRoute: typeof ServicesRoute
   ShopRoute: typeof ShopRoute
-  Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
-  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
-  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
-  Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -481,13 +413,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mcp': {
-      id: '/mcp'
-      path: '/mcp'
-      fullPath: '/mcp'
-      preLoaderRoute: typeof McpRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/pricing': {
       id: '/pricing'
       path: '/pricing'
@@ -521,20 +446,6 @@ declare module '@tanstack/react-router' {
       path: '/shop'
       fullPath: '/shop'
       preLoaderRoute: typeof ShopRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/.mcp/list-tools': {
-      id: '/.mcp/list-tools'
-      path: '/.mcp/list-tools'
-      fullPath: '/.mcp/list-tools'
-      preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/.well-known/oauth-protected-resource': {
-      id: '/.well-known/oauth-protected-resource'
-      path: '/.well-known/oauth-protected-resource'
-      fullPath: '/.well-known/oauth-protected-resource'
-      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
@@ -635,20 +546,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesAbatRouteImport
       parentRoute: typeof CoursesRoute
     }
-    '/.lovable/oauth/consent': {
-      id: '/.lovable/oauth/consent'
-      path: '/.lovable/oauth/consent'
-      fullPath: '/.lovable/oauth/consent'
-      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/.mcp/invoke-tool/$tool': {
-      id: '/.mcp/invoke-tool/$tool'
-      path: '/.mcp/invoke-tool/$tool'
-      fullPath: '/.mcp/invoke-tool/$tool'
-      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/admin/courses/$courseId': {
       id: '/admin/courses/$courseId'
       path: '/$courseId'
@@ -724,28 +621,12 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRouteWithChildren,
-  McpRoute: McpRoute,
   PricingRoute: PricingRoute,
   RefundPolicyRoute: RefundPolicyRoute,
   ResourcesRoute: ResourcesRoute,
   ServicesRoute: ServicesRoute,
   ShopRoute: ShopRoute,
-  Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
-  Char91DotwellKnownChar93OauthProtectedResourceRoute:
-    Char91DotwellKnownChar93OauthProtectedResourceRoute,
-  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
-  Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
